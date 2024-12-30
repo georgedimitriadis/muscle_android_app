@@ -2,7 +2,7 @@
 schedule = {'beginner': {
     'stage 1': {
         'week 1': {
-            'mini circuit 1': {
+            'circuit 1': {
                 'name': ['THIN TUMMY', 'STATIC LUNGE', 'DUMBBELL LYING ROW', 'DUMBBELL UPRIGHT ROW',
                               'CURLUP CHEATUP AND SLOW LOWER', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
                               'DUMBBELL BENCH PRESS', 'PUSHUP HOLD', 'STANDING SINGLE LEG CALF RAISE',
@@ -17,7 +17,7 @@ schedule = {'beginner': {
             }
         },
         'week 2': {
-            'mini circuit 1': {
+            'circuit 1': {
                 'name': ['THIN TUMMY', 'STATIC LUNGE', 'DUMBBELL LYING ROW', 'DUMBBELL UPRIGHT ROW',
                               'CURLUP CHEATUP AND SLOW LOWER', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
                               'DUMBBELL BENCH PRESS', 'PUSHUP HOLD', 'STANDING SINGLE LEG CALF RAISE',
@@ -32,7 +32,7 @@ schedule = {'beginner': {
             }
         },
         'week 3': {
-            'mini circuit 1': {
+            'circuit 1': {
                 'name': ['THIN TUMMY', 'STATIC LUNGE', 'DUMBBELL LYING ROW', 'DUMBBELL UPRIGHT ROW',
                               'CURLUP CHEATUP AND SLOW LOWER', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
                               'DUMBBELL BENCH PRESS', 'PUSHUP HOLD', 'STANDING SINGLE LEG CALF RAISE',
@@ -47,7 +47,7 @@ schedule = {'beginner': {
             }
         },
         'week 4': {
-            'mini circuit 1': {
+            'circuit 1': {
                 'name': ['THIN TUMMY LIFT ONE LEG', 'STATIC LUNGE', 'DUMBBELL LYING ROW', 'DUMBBELL UPRIGHT ROW'],
                 'warmup sets': [],
                 'warmpup reps': [],
@@ -56,9 +56,9 @@ schedule = {'beginner': {
                 'tempo': ['313', '311', '311', '311'],
                 'rest': ['60', '60', '60', '60']
             },
-            'mini circuit 2':{
-                'exercise': ['CURLUP ARTMS STRAIGHT AND PARALLEL TO FLOOR', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
-                              'DUMBBELL BENCH PRESS'],
+            'circuit 2':{
+                'name': ['CURLUP ARTMS STRAIGHT AND PARALLEL TO FLOOR', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
+                         'DUMBBELL BENCH PRESS'],
                 'warmup sets': [],
                 'warmpup reps': [],
                 'work sets': ['1', '1', '1', '1'],
@@ -66,9 +66,9 @@ schedule = {'beginner': {
                 'tempo': ['515', '311', '311', '311'],
                 'rest': ['60', '60', '60', '60 - 120']
             },
-            'mini circuit 3':{
-                'exercise': ['PUSHUP HOLD HANDS AND FEET', 'STANDING SINGLE LEG CALF RAISE',
-                              'DUMBBELL SEATED HAMMER CURL WITH TWIST ALTERNATING', 'DUMBBELL TRICEPS KICKBACK'],
+            'circuit 3':{
+                'name': ['PUSHUP HOLD HANDS AND FEET', 'STANDING SINGLE LEG CALF RAISE',
+                         'DUMBBELL SEATED HAMMER CURL WITH TWIST ALTERNATING', 'DUMBBELL TRICEPS KICKBACK'],
                 'warmup sets': [],
                 'warmpup reps': [],
                 'work sets': ['1', '1', '1', '1'],
@@ -78,7 +78,7 @@ schedule = {'beginner': {
             }
         },
         'week 5': {
-            'mini circuit 1': {
+            'circuit 1': {
                 'name': ['THIN TUMMY LIFT ONE LEG', 'STATIC LUNGE', 'DUMBBELL LYING ROW', 'DUMBBELL UPRIGHT ROW'],
                 'warmup sets': [],
                 'warmpup reps': [],
@@ -87,9 +87,9 @@ schedule = {'beginner': {
                 'tempo': ['313', '311', '311', '311'],
                 'rest': ['60', '60', '60', '60']
             },
-            'mini circuit 2':{
-                'exercise': ['CURLUP ARTMS STRAIGHT AND PARALLEL TO FLOOR', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
-                              'DUMBBELL BENCH PRESS'],
+            'circuit 2':{
+                'name': ['CURLUP ARTMS STRAIGHT AND PARALLEL TO FLOOR', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
+                         'DUMBBELL BENCH PRESS'],
                 'warmup sets': [],
                 'warmpup reps': [],
                 'work sets': ['1 or 2', '1 or 2', '1 or 2', '1 or 2'],
@@ -97,9 +97,9 @@ schedule = {'beginner': {
                 'tempo': ['515', '311', '311', '311'],
                 'rest': ['60', '60', '60', '60 - 120']
             },
-            'mini circuit 3':{
-                'exercise': ['PUSHUP HOLD HANDS AND FEET', 'STANDING SINGLE LEG CALF RAISE',
-                              'DUMBBELL SEATED HAMMER CURL WITH TWIST ALTERNATING', 'DUMBBELL TRICEPS KICKBACK'],
+            'circuit 3':{
+                'name': ['PUSHUP HOLD HANDS AND FEET', 'STANDING SINGLE LEG CALF RAISE',
+                         'DUMBBELL SEATED HAMMER CURL WITH TWIST ALTERNATING', 'DUMBBELL TRICEPS KICKBACK'],
                 'warmup sets': [],
                 'warmpup reps': [],
                 'work sets': ['1 or 2', '1 or 2', '1 or 2', '1 or 2'],
@@ -109,7 +109,7 @@ schedule = {'beginner': {
             }
         },
         'week 6': {
-            'mini circuit 1': {
+            'circuit 1': {
                 'name': ['THIN TUMMY LIFT ONE LEG', 'STATIC LUNGE', 'DUMBBELL LYING ROW', 'DUMBBELL UPRIGHT ROW'],
                 'warmup sets': [],
                 'warmpup reps': [],
@@ -118,9 +118,9 @@ schedule = {'beginner': {
                 'tempo': ['313', '311', '311', '311'],
                 'rest': ['60', '60', '60', '60']
             },
-            'mini circuit 2':{
-                'exercise': ['CURLUP ARTMS STRAIGHT AND PARALLEL TO FLOOR', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
-                              'DUMBBELL BENCH PRESS'],
+            'circuit 2':{
+                'name': ['CURLUP ARTMS STRAIGHT AND PARALLEL TO FLOOR', 'DUMBBELL BENCH STEP', 'DUMBBELL LYING PULLOVER',
+                         'DUMBBELL BENCH PRESS'],
                 'warmup sets': [],
                 'warmpup reps': [],
                 'work sets': ['2 or 3', '2 or 3', '2 or 3', '2 or 3'],
@@ -128,9 +128,9 @@ schedule = {'beginner': {
                 'tempo': ['515', '311', '311', '311'],
                 'rest': ['60', '60', '60', '60 - 120']
             },
-            'mini circuit 3':{
-                'exercise': ['PUSHUP HOLD HANDS AND FEET', 'STANDING SINGLE LEG CALF RAISE',
-                              'DUMBBELL SEATED HAMMER CURL WITH TWIST ALTERNATING', 'DUMBBELL TRICEPS KICKBACK'],
+            'circuit 3':{
+                'name': ['PUSHUP HOLD HANDS AND FEET', 'STANDING SINGLE LEG CALF RAISE',
+                         'DUMBBELL SEATED HAMMER CURL WITH TWIST ALTERNATING', 'DUMBBELL TRICEPS KICKBACK'],
                 'warmup sets': [],
                 'warmpup reps': [],
                 'work sets': ['2 or 3', '2 or 3', '2 or 3', '2 or 3'],
