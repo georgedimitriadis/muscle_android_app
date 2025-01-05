@@ -1,8 +1,8 @@
 {
     "program": "beginner",
-    "stage": 3,
+    "stage": 1,
     "week": 1,
-    "workout": "A",
+    "workout": 1,
     "circuit": 1,
     "exercise": 0
 }

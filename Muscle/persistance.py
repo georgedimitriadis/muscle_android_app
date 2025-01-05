@@ -1,7 +1,7 @@
 
-from dataclasses import dataclass
+from datetime import datetime
 import json
-from typing import Tuple, Dict
+from typing import Tuple
 
 
 class Data:
@@ -18,6 +18,11 @@ class Data:
     def save_schedule_reps_and_kilos(self):
         with open(self.schedule_file, 'w') as f:
             json.dump(self.schedule, fp=f, indent=4)
+        try:
+            with open(r'/storage/sdcard0/Documents/muscle_app_current_schedule.json', 'x') as g:
+                json.dump(self.schedule, fp=g, indent=4)
+        except:
+            pass
 
     def save_current_place_in_schedule(self):
         with open(self.current_place_file, 'w') as f:
@@ -25,7 +30,6 @@ class Data:
 
 
 class ExerciseData:
-    #def __init__(self, program: str, stage: int, week: int, workout: str, exercise_index: int):
     def __init__(self):
         data = Data()
         self.data = data
@@ -50,17 +54,17 @@ class ExerciseData:
         self.data.current_place_in_schedule['program'] = self.program
         self.data.current_place_in_schedule['stage'] = self.get_stage_int()
         self.data.current_place_in_schedule['week'] = self.get_week_int()
-        self.data.current_place_in_schedule['workout'] = self.get_workout_letter()
+        self.data.current_place_in_schedule['workout'] = self.get_workout_int()
         self.data.current_place_in_schedule['circuit'] = self.get_circuit_int()
         self.data.current_place_in_schedule['exercise'] = self.exercise_index
         self.data.save_current_place_in_schedule()
 
     @staticmethod
-    def get_workout_str(workout: str) -> str:
-        return 'workout ' + workout
+    def get_workout_str(workout: int) -> str:
+        return f'workout {workout}'
 
-    def get_workout_letter(self) -> str:
-        return self.workout.split(' ')[1]
+    def get_workout_int(self) -> int:
+        return int(self.workout.split(' ')[1])
 
     @staticmethod
     def get_stage_str(stage: int) -> str:
@@ -88,7 +92,7 @@ class ExerciseData:
         elif self.stage == 'stage 3':
             return int(self.week.split(' ')[1]) - 14
         elif self.stage == 'stage 4':
-            return int(self.week.split(' ')[1]) -21
+            return int(self.week.split(' ')[1]) - 21
 
     @staticmethod
     def get_circuit_str(circuit: int) -> str:
@@ -151,8 +155,29 @@ class ExerciseData:
 
         self.circuit = f'circuit {circ_int}'
 
+    def update_program(self, new_program: str):
+        self.program = new_program
+        self.stage = self.get_stage_str(1)
+        self.week = self.get_week_str(self.stage, 1)
+        self.workout = self.get_workout_str(1)
+        self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(0)
+
     def update_stage(self, new_stage: int):
         self.stage = self.get_stage_str(new_stage)
         self.week = self.get_week_str(self.stage, 1)
-        self.workout = self.get_workout_str('A')
+        self.workout = self.get_workout_str(1)
+        self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(0)
+
+    def update_week(self, new_week: int):
+        self.week = self.get_week_str(self.stage, new_week)
+        self.workout = self.get_workout_str(1)
+        self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(0)
+
+    def update_workout(self, new_workout: int):
+        self.workout = self.get_workout_str(new_workout)
         self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(1)
+
+    def save_exercise_time_and_day(self):
+        now = str(datetime.now())
+        exercises = self.schedule[self.program][self.stage][self.week][self.workout][self.circuit]
+        exercises['work sets done'][self.exercise_index] = now
