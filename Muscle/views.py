@@ -1,5 +1,3 @@
-import json
-import os
 from typing import Callable
 
 import flet as ft
@@ -309,7 +307,7 @@ class ExerciseView:
 
 class NavigationButtonsView:
     def __init__(self, ex_data: ExerciseData, previous_ex: Callable, next_ex: Callable,
-                 previous_circ: Callable, next_circ: Callable):
+                 previous_circ: Callable, next_circ: Callable, send_email: Callable):
         self.ex_data = ex_data
         self.schedule = ex_data.schedule
         self.program = ex_data.program
@@ -325,6 +323,7 @@ class NavigationButtonsView:
         self.next_ex = next_ex
         self.previous_circ = previous_circ
         self.next_circ = next_circ
+        self.send_email = send_email
 
     def generate_view(self, page):
         back_ex_button = ft.FilledTonalButton(content=ft.Row([ft.Icon(ft.Icons.NAVIGATE_BEFORE, size=20),
@@ -343,7 +342,10 @@ class NavigationButtonsView:
                                                                  ft.Icon(ft.Icons.SKIP_NEXT, size=20)],
                                                                 spacing=20),
                                                  on_click=self.next_circ, width=130)
+        email_button = ft.FilledTonalButton(content=ft.Text('Send schedule by email'),
+                                            on_click=self.send_email, width=130)
 
         page.add(ft.Divider(height=10, color='white'))
         page.add(ft.Row(controls=[back_ex_button, front_ex_button], alignment=ft.MainAxisAlignment.SPACE_BETWEEN))
         page.add(ft.Row(controls=[back_circ_button, front_circ_button], alignment=ft.MainAxisAlignment.SPACE_BETWEEN))
+        page.add(email_button)
