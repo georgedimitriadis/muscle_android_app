@@ -232,8 +232,8 @@ class ExerciseView:
                     reps.append(1)
                     reps.append(40)
 
-            reps_input_options = [ft.dropdown.Option(f'{i}') for i in range(reps[0], reps[1] + 1)] if len(reps) > 1 \
-                else [ft.dropdown.Option(f'{reps[0]}')]
+            reps_input_options = [ft.dropdown.Option(f'{i}') for i in range(reps[0] - 2, reps[1] + 1)] if len(reps) > 1 \
+                else [ft.dropdown.Option(f'{reps[0] - 2}'), ft.dropdown.Option(f'{reps[0] - 1}'), ft.dropdown.Option(f'{reps[0]}')]
             reps_input = ft.Dropdown(width=60, height=45, options=reps_input_options, on_change=update_schedule,
                                      data=[c, work_or_warmup], text_size=14)
             reps_input.value = self.exercises['work reps done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
