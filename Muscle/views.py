@@ -1,6 +1,7 @@
 from typing import Callable
 
 import flet as ft
+
 from persistance import ExerciseData
 
 
@@ -248,11 +249,21 @@ class ExerciseView:
                              color=ft.Colors.BLUE)
 
         def update_schedule(e):
-            work = True if e.control.data[1] == 'work' else False
-            if work:
-                self.exercises['work kilos done'][self.exercise_index][e.control.data[0]] = e.control.value
+            work_type = 'work kilos done' if e.control.data[1] == 'work' else 'warmup kilos done'
+            is_decimal = e.control.data[2]
+
+            current_kilos = float(self.exercises[work_type][self.exercise_index][e.control.data[0]])
+            int_kilos = int(current_kilos)
+            decimal_kilos = current_kilos - int(current_kilos)
+
+            if is_decimal:
+                decimal_kilos = float(e.control.value)
             else:
-                self.exercises['warmup kilos done'][self.exercise_index][e.control.data[0]] = e.control.value
+                int_kilos = float(e.control.value)
+
+            new_kilos = str(int_kilos + decimal_kilos)
+
+            self.exercises[work_type][self.exercise_index][e.control.data[0]] = new_kilos
             self.ex_data.save()
 
         work_reps = self.exercises['work sets'][self.exercise_index]
@@ -262,12 +273,22 @@ class ExerciseView:
         controls = [kilos_text]
         for c in range(num_of_reps):
             work_or_warmup = 'warmup' if c < warmup_reps else 'work'
-            kilos_units_input_options = [ft.dropdown.Option(f'{i}') for i in range(200)]
-            kilos_units_input = ft.Dropdown(width=100, height=45, options=kilos_units_input_options,
-                                            on_change=update_schedule, data=[c, work_or_warmup], text_size=14)
-            kilos_units_input.value = self.exercises['work kilos done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
+            full_kilos_units_input_options = [ft.dropdown.Option(f'{i}') for i in range(200)]
+            full_kilos_units_input = ft.Dropdown(width=55, height=45, options=full_kilos_units_input_options,
+                                                 on_change=update_schedule, data=[c, work_or_warmup, False], text_size=14)
+
+            decimal_kilos_input_options = [ft.dropdown.Option(f'{i}') for i in [x/10 for x in range(10)]]
+            decimal_kilos_units_input = ft.Dropdown(width=45, height=45, options=decimal_kilos_input_options,
+                                                    on_change=update_schedule, data=[c, work_or_warmup, True], text_size=10)
+
+            current_kilos_value = self.exercises['work kilos done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
                 else self.exercises['warmup kilos done'][self.exercise_index][c]
-            controls.append(kilos_units_input)
+            full_kilos_current_value = int(float(current_kilos_value))
+            decimal_kilos_current_value = (round((float(current_kilos_value) - full_kilos_current_value)*10))/10
+            full_kilos_units_input.value = str(full_kilos_current_value)
+            decimal_kilos_units_input.value = str(decimal_kilos_current_value)
+            both_full_and_decimal = ft.Row(controls=[full_kilos_units_input, decimal_kilos_units_input])
+            controls.append(both_full_and_decimal)
     
         kilos_column = ft.Column(controls=controls, height=50 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
         return kilos_column
