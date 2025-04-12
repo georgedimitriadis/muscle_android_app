@@ -190,7 +190,7 @@ class ExerciseView:
         stats_column_values_left, stats_column_values_right = self.get_stats_values_columns(stats_column_height, stats_font_size)
         stats_row.controls.append(stats_column_names_left)
         stats_row.controls.append(stats_column_values_left)
-        stats_row.controls.append(ft.VerticalDivider(width=80, color='white'))
+        stats_row.controls.append(ft.VerticalDivider(width=50, color='white'))
         stats_row.controls.append(stats_column_names_right)
         stats_row.controls.append(stats_column_values_right)
     
@@ -371,7 +371,7 @@ class NavigationButtonsView:
         email_button = ft.FilledTonalButton(content=ft.Text('Send schedule by email'),
                                             on_click=self.send_email, width=130)
 
-        page.add(ft.Divider(height=10, color='white'))
+        page.add(ft.Divider(height=2, color='white'))
         page.add(ft.Row(controls=[back_ex_button, front_ex_button], alignment=ft.MainAxisAlignment.SPACE_BETWEEN))
         page.add(ft.Row(controls=[back_circ_button, front_circ_button], alignment=ft.MainAxisAlignment.SPACE_BETWEEN))
         page.add(email_button)
