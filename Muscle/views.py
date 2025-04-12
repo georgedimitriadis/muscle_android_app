@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Tuple
 
 import flet as ft
 
@@ -28,31 +28,31 @@ class InfoView:
 
         page.add(
             ft.Text('                 ', visible=True, height=20),
-            ft.Row(controls=[ft.Text('PROGRAM ', size=14, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
+            ft.Row(controls=[ft.Text('PROGRAM ', size=12, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
                              ft.Dropdown(options=[ft.dropdown.Option('beginner'), ft.dropdown.Option('intermediate'),
                                                   ft.dropdown.Option('advanced')],
                                          value=str(self.ex_data.program), dense=True, select_icon_size=1,
-                                         width=90, height=50, on_change=self.update_program, text_size=16,
+                                         width=90, height=35, on_change=self.update_program, text_size=15,
                                          content_padding=10),
-                             ft.Text('STAGE       ', size=14, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
+                             ft.Text('STAGE       ', size=12, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
                              ft.Dropdown(options=[ft.dropdown.Option('1'), ft.dropdown.Option('2'),
                                                   ft.dropdown.Option('3'), ft.dropdown.Option('4')],
                                          value=str(self.ex_data.get_stage_int()),
-                                         width=60, height=50, on_change=self.update_stage, text_size=16,
+                                         width=60, height=35, on_change=self.update_stage, text_size=15,
                                          content_padding=10)],
                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
-            ft.Row(controls=[ft.Text('WEEK        ', size=14, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
+            ft.Row(controls=[ft.Text('WEEK        ', size=12, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
                              ft.Dropdown(options=[ft.dropdown.Option('1'), ft.dropdown.Option('2'),
                                                   ft.dropdown.Option('3'), ft.dropdown.Option('4'),
                                                   ft.dropdown.Option('5'), ft.dropdown.Option('6')],
                                          value=str(self.ex_data.get_week_int()),
-                                         width=60, height=50, on_change=self.update_week, text_size=16,
+                                         width=60, height=35, on_change=self.update_week, text_size=15,
                                          content_padding=10),
-                             ft.Text('     WORKOUT', size=14, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
+                             ft.Text('     WORKOUT', size=12, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
                              ft.Dropdown(options=[ft.dropdown.Option('1'), ft.dropdown.Option('2'),
                                                   ft.dropdown.Option('3')],
                                          value=str(self.ex_data.get_workout_int()),
-                                         width=60, height=50, on_change=self.update_workout, text_size=16,
+                                         width=60, height=35, on_change=self.update_workout, text_size=15,
                                          content_padding=10)],
                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
         )
@@ -83,9 +83,9 @@ class ExerciseView:
 
         exercise_info_row = ft.Row(controls=[
             ft.Column(
-                controls=[ft.Text(f"CIRCUIT {int(self.circuit.split(' ')[1])}", size=20, weight=ft.FontWeight.BOLD,
+                controls=[ft.Text(f"CIRCUIT {int(self.circuit.split(' ')[1])}", size=15, weight=ft.FontWeight.BOLD,
                                   color=ft.Colors.BLUE),
-                          ft.Text(f"EXERCISE {self.exercise_index + 1}", size=20, weight=ft.FontWeight.BOLD,
+                          ft.Text(f"EXERCISE {self.exercise_index + 1}", size=15, weight=ft.FontWeight.BOLD,
                                   color=ft.Colors.BLUE)]),
             ft.Column(
                 controls=[ft.FilledTonalButton(content=ft.Text("DONE ON"), width=100, on_click=self.on_done,
@@ -129,8 +129,9 @@ class ExerciseView:
     
         return exercise_name_row
     
-    def get_stats_names_column(self, stats_column_height: int, stats_font_size: int) -> ft.Column:
-        stats_column_names = ft.Column(alignment=ft.MainAxisAlignment.SPACE_AROUND, height=stats_column_height)
+    def get_stats_names_columns(self, stats_column_height: int, stats_font_size: int) -> Tuple[ft.Column, ft.Column]:
+        stats_column_names_left = ft.Column(alignment=ft.MainAxisAlignment.SPACE_AROUND, height=stats_column_height)
+        stats_column_names_right = ft.Column(alignment=ft.MainAxisAlignment.SPACE_AROUND, height=stats_column_height)
         warmup_sets = ft.Text(f"WARMUP SETS: ", size=stats_font_size, weight=ft.FontWeight.BOLD,
                               color=ft.Colors.BLUE)
         warmup_reps = ft.Text(f"WARMUP REPS: ", size=stats_font_size, weight=ft.FontWeight.BOLD,
@@ -143,17 +144,19 @@ class ExerciseView:
                         color=ft.Colors.BLUE)
         rest = ft.Text(f"REST: ", size=stats_font_size, weight=ft.FontWeight.BOLD,
                        color=ft.Colors.BLUE)
-        stats_column_names.controls.append(warmup_sets)
-        stats_column_names.controls.append(warmup_reps)
-        stats_column_names.controls.append(work_sets)
-        stats_column_names.controls.append(work_reps)
-        stats_column_names.controls.append(tempo)
-        stats_column_names.controls.append(rest)
+        stats_column_names_left.controls.append(warmup_sets)
+        stats_column_names_left.controls.append(warmup_reps)
+        stats_column_names_left.controls.append(work_sets)
+        stats_column_names_right.controls.append(work_reps)
+        stats_column_names_right.controls.append(tempo)
+        stats_column_names_right.controls.append(rest)
     
-        return stats_column_names
+        return stats_column_names_left, stats_column_names_right
     
-    def get_stats_values_column(self, stats_column_height: int, stats_font_size: int) -> ft.Column:
-        stats_column_values = ft.Column(alignment=ft.MainAxisAlignment.SPACE_AROUND, height=stats_column_height)
+    def get_stats_values_columns(self, stats_column_height: int, stats_font_size: int) -> Tuple[ft.Column, ft.Column]:
+        stats_column_values_left = ft.Column(alignment=ft.MainAxisAlignment.SPACE_AROUND, height=stats_column_height)
+        stats_column_values_right = ft.Column(alignment=ft.MainAxisAlignment.SPACE_AROUND, height=stats_column_height)
+
         ex_warmup_sets_value = ' ' if len(self.exercises['warmup sets']) == 0 else self.exercises['warmup sets'][
             self.exercise_index].upper()
         ex_warmup_sets = ft.Text(f"{ex_warmup_sets_value}", size=stats_font_size, weight=ft.FontWeight.BOLD,
@@ -170,22 +173,26 @@ class ExerciseView:
                            weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE)
         ex_rest = ft.Text(f"{self.exercises['rest'][self.exercise_index].upper()}", size=stats_font_size,
                           weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE)
-        stats_column_values.controls.append(ex_warmup_sets)
-        stats_column_values.controls.append(ex_warmup_reps)
-        stats_column_values.controls.append(ex_work_sets)
-        stats_column_values.controls.append(ex_work_reps)
-        stats_column_values.controls.append(ex_tempo)
-        stats_column_values.controls.append(ex_rest)
+
+        stats_column_values_left.controls.append(ex_warmup_sets)
+        stats_column_values_left.controls.append(ex_warmup_reps)
+        stats_column_values_left.controls.append(ex_work_sets)
+        stats_column_values_right.controls.append(ex_work_reps)
+        stats_column_values_right.controls.append(ex_tempo)
+        stats_column_values_right.controls.append(ex_rest)
     
-        return stats_column_values
+        return stats_column_values_left, stats_column_values_right
     
     def generate_stats(self, row_width: int, stats_column_height: int, stats_font_size: int) -> ft.Row:
         stats_row = ft.Row(width=row_width)
     
-        stats_column_names = self.get_stats_names_column(stats_column_height, stats_font_size)
-        stats_column_values = self.get_stats_values_column(stats_column_height, stats_font_size)
-        stats_row.controls.append(stats_column_names)
-        stats_row.controls.append(stats_column_values)
+        stats_column_names_left, stats_column_names_right = self.get_stats_names_columns(stats_column_height, stats_font_size)
+        stats_column_values_left, stats_column_values_right = self.get_stats_values_columns(stats_column_height, stats_font_size)
+        stats_row.controls.append(stats_column_names_left)
+        stats_row.controls.append(stats_column_values_left)
+        stats_row.controls.append(ft.VerticalDivider(width=80, color='white'))
+        stats_row.controls.append(stats_column_names_right)
+        stats_row.controls.append(stats_column_values_right)
     
         return stats_row
 
@@ -226,7 +233,7 @@ class ExerciseView:
         for c in range(num_of_reps):
             work_or_warmup = 'warmup' if c < warmup_reps else 'work'
             reps = []
-            for i in stats_row.controls[1].controls[3].value.split('-'):
+            for i in stats_row.controls[4].controls[0].value.split('-'):
                 if i != 'MAX':
                     reps.append(int(i))
                 else:
@@ -307,7 +314,7 @@ class ExerciseView:
     
     def generate_view(self, page: ft.Page):
         stats_row_width = 150
-        stats_column_height = 100
+        stats_column_height = 50
         stats_font_size = 14
 
         exercise_info_row = self.generate_exercise_info_row()
@@ -319,10 +326,8 @@ class ExerciseView:
         inputs_row = self.generate_input_row(stats_row, stats_font_size, stats_row_width)
 
         page.add(exercise_info_row)
-        page.add(ft.Divider(height=10, color='white'))
         page.add(exercise_name_row)
         page.add(stats_row)
-        page.add(ft.Divider(height=10, color="white"))
         page.add(inputs_row)
 
 
