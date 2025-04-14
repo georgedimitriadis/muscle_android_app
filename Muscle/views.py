@@ -161,7 +161,7 @@ class ExerciseView:
             self.exercise_index].upper()
         ex_warmup_sets = ft.Text(f"{ex_warmup_sets_value}", size=stats_font_size, weight=ft.FontWeight.BOLD,
                                  color=ft.Colors.BLUE)
-        ex_warmup_reps_value = ' ' if len(self.exercises['warmup sets']) == 0 else self.exercises['warmup sets'][
+        ex_warmup_reps_value = ' ' if len(self.exercises['warmup reps']) == 0 else self.exercises['warmup reps'][
             self.exercise_index].upper()
         ex_warmup_reps = ft.Text(f"{ex_warmup_reps_value}", size=stats_font_size, weight=ft.FontWeight.BOLD,
                                  color=ft.Colors.BLUE)
