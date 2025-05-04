@@ -35,13 +35,6 @@ class ExerciseData:
         self.data = data
         self.schedule = data.schedule
         self.current_place_in_schedule = data.current_place_in_schedule
-        '''
-        self.program = program
-        self.stage = self.get_stage_str(stage)
-        self.week = self.get_week_str(self.stage, week)
-        self.workout = self.get_workout_str(workout)
-        self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(exercise_index)
-        '''
         self.program = self.current_place_in_schedule['program']
         self.stage = self.get_stage_str(self.current_place_in_schedule['stage'])
         self.week = self.get_week_str(self.stage, self.current_place_in_schedule['week'])

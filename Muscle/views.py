@@ -81,10 +81,11 @@ class ExerciseView:
             now = f'{now[0]}\n{now[1]}'
         on_done_text = ft.Text(now)
 
+        circuit_type = '' if len(self.circuit.split(' ')) == 2 else self.circuit.split(' ')[2].upper()
         exercise_info_row = ft.Row(controls=[
             ft.Column(
-                controls=[ft.Text(f"CIRCUIT {int(self.circuit.split(' ')[1])}", size=15, weight=ft.FontWeight.BOLD,
-                                  color=ft.Colors.BLUE),
+                controls=[ft.Text(f"CIRCUIT {int(self.circuit.split(' ')[1])} {circuit_type}", size=15,
+                                  weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
                           ft.Text(f"EXERCISE {self.exercise_index + 1}", size=15, weight=ft.FontWeight.BOLD,
                                   color=ft.Colors.BLUE)]),
             ft.Column(
@@ -190,7 +191,7 @@ class ExerciseView:
         stats_column_values_left, stats_column_values_right = self.get_stats_values_columns(stats_column_height, stats_font_size)
         stats_row.controls.append(stats_column_names_left)
         stats_row.controls.append(stats_column_values_left)
-        stats_row.controls.append(ft.VerticalDivider(width=50, color='white'))
+        stats_row.controls.append(ft.VerticalDivider(width=10, color='white'))
         stats_row.controls.append(stats_column_names_right)
         stats_row.controls.append(stats_column_values_right)
     
@@ -232,8 +233,21 @@ class ExerciseView:
         controls = [reps_text]
         for c in range(num_of_reps):
             work_or_warmup = 'warmup' if c < warmup_reps else 'work'
+            index = c if work_or_warmup == 'warmup' else c - warmup_reps
             reps = []
-            for i in stats_row.controls[4].controls[0].value.split('-'):
+
+            rep_values = stats_row.controls[4].controls[0].value if work_or_warmup == 'work' else \
+                stats_row.controls[1].controls[1].value
+
+            if '-' in rep_values:
+                possible_rep_value = stats_row.controls[4].controls[0].value.split('-') if work_or_warmup == 'work' else \
+                    stats_row.controls[1].controls[1].value.split('-')
+            elif '/' in rep_values:
+                possible_rep_value = [rep_values.split('/')[c - warmup_reps]]
+            else:
+                possible_rep_value = [rep_values]
+
+            for i in possible_rep_value:
                 if i != 'MAX':
                     reps.append(int(i))
                 else:
@@ -243,7 +257,7 @@ class ExerciseView:
             reps_input_options = [ft.dropdown.Option(f'{i}') for i in range(reps[0] - 2, reps[1] + 1)] if len(reps) > 1 \
                 else [ft.dropdown.Option(f'{reps[0] - 2}'), ft.dropdown.Option(f'{reps[0] - 1}'), ft.dropdown.Option(f'{reps[0]}')]
             reps_input = ft.Dropdown(width=60, height=45, options=reps_input_options, on_change=update_schedule,
-                                     data=[c, work_or_warmup], text_size=14)
+                                     data=[index, work_or_warmup], text_size=14)
             reps_input.value = self.exercises['work reps done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
                 else self.exercises['warmup reps done'][self.exercise_index][c]
             controls.append(reps_input)
@@ -258,7 +272,6 @@ class ExerciseView:
         def update_schedule(e):
             work_type = 'work kilos done' if e.control.data[1] == 'work' else 'warmup kilos done'
             is_decimal = e.control.data[2]
-
             current_kilos = float(self.exercises[work_type][self.exercise_index][e.control.data[0]])
             int_kilos = int(current_kilos)
             decimal_kilos = current_kilos - int(current_kilos)
@@ -281,12 +294,13 @@ class ExerciseView:
         for c in range(num_of_reps):
             work_or_warmup = 'warmup' if c < warmup_reps else 'work'
             full_kilos_units_input_options = [ft.dropdown.Option(f'{i}') for i in range(200)]
+            index = c if work_or_warmup == 'warmup' else c - warmup_reps
             full_kilos_units_input = ft.Dropdown(width=55, height=45, options=full_kilos_units_input_options,
-                                                 on_change=update_schedule, data=[c, work_or_warmup, False], text_size=14)
+                                                 on_change=update_schedule, data=[index, work_or_warmup, False], text_size=14)
 
             decimal_kilos_input_options = [ft.dropdown.Option(f'{i}') for i in [x/10 for x in range(10)]]
             decimal_kilos_units_input = ft.Dropdown(width=45, height=45, options=decimal_kilos_input_options,
-                                                    on_change=update_schedule, data=[c, work_or_warmup, True], text_size=10)
+                                                    on_change=update_schedule, data=[index, work_or_warmup, True], text_size=10)
 
             current_kilos_value = self.exercises['work kilos done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
                 else self.exercises['warmup kilos done'][self.exercise_index][c]
