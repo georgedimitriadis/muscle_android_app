@@ -41,6 +41,7 @@ class ExerciseData:
         self.workout = self.get_workout_str(self.current_place_in_schedule['workout'])
         self.circuit = self.get_circuit_str(self.current_place_in_schedule['circuit'])
         self.exercise_index = self.current_place_in_schedule['exercise']
+        self.circuit_type = self.get_circuit_type(self.circuit)
 
     def save(self):
         self.data.save_schedule_reps_and_kilos()
@@ -108,6 +109,14 @@ class ExerciseData:
 
         return 'circuit 1', exercise_index
 
+    def get_circuit_type(self, circuit: str) -> str:
+        circuits = self.schedule[self.program][self.stage][self.week][self.workout]
+        cicuit_index = int(circuit.split(' ')[1])
+        if 'type' in circuits[f'circuit {cicuit_index}']:
+            return circuits[f'circuit {cicuit_index}']['type']
+        else:
+            return 'alternating'
+
     def to_next_ex(self):
         exercises = self.schedule[self.program][self.stage][self.week][self.workout][self.circuit]
 
@@ -135,6 +144,7 @@ class ExerciseData:
             circ_int = 1
 
         self.circuit = f'circuit {circ_int}'
+        self.circuit_type = self.get_circuit_type(self.circuit)
 
     def to_previous_circ(self):
         self.exercise_index = 0
@@ -147,6 +157,7 @@ class ExerciseData:
             circ_int = len(circuits)
 
         self.circuit = f'circuit {circ_int}'
+        self.circuit_type = self.get_circuit_type(self.circuit)
 
     def update_program(self, new_program: str):
         self.program = new_program
@@ -154,21 +165,25 @@ class ExerciseData:
         self.week = self.get_week_str(self.stage, 1)
         self.workout = self.get_workout_str(1)
         self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(0)
+        self.circuit_type = self.get_circuit_type(self.circuit)
 
     def update_stage(self, new_stage: int):
         self.stage = self.get_stage_str(new_stage)
         self.week = self.get_week_str(self.stage, 1)
         self.workout = self.get_workout_str(1)
         self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(0)
+        self.circuit_type = self.get_circuit_type(self.circuit)
 
     def update_week(self, new_week: int):
         self.week = self.get_week_str(self.stage, new_week)
         self.workout = self.get_workout_str(1)
         self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(0)
+        self.circuit_type = self.get_circuit_type(self.circuit)
 
     def update_workout(self, new_workout: int):
         self.workout = self.get_workout_str(new_workout)
         self.circuit, self.exercise_index = self.get_circuit_and_exercise_index(1)
+        self.circuit_type = self.get_circuit_type(self.circuit)
 
     def save_exercise_time_and_day(self):
         now = str(datetime.now())

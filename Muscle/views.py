@@ -68,6 +68,7 @@ class ExerciseView:
         self.workout = ex_data.workout
         self.circuit = ex_data.circuit
         self.exercise_index = ex_data.exercise_index
+        self.circuit_type = ex_data.circuit_type
 
         self.exercises = self.schedule[self.program][self.stage][self.week][self.workout][self.circuit]
 
@@ -81,7 +82,7 @@ class ExerciseView:
             now = f'{now[0]}\n{now[1]}'
         on_done_text = ft.Text(now)
 
-        circuit_type = '' if len(self.circuit.split(' ')) == 2 else self.circuit.split(' ')[2].upper()
+        circuit_type = self.circuit_type
         exercise_info_row = ft.Row(controls=[
             ft.Column(
                 controls=[ft.Text(f"CIRCUIT {int(self.circuit.split(' ')[1])} {circuit_type}", size=15,
@@ -207,8 +208,9 @@ class ExerciseView:
         num_of_reps = int(work_reps) + int(warmup_reps)
         controls = [circuits_text]
         for c in range(num_of_reps):
-            circuit = ft.Text(f'WARMUP {c + 1}', weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE) if c < warmup_reps \
-                else ft.Text(f'WORK {c + 1 - warmup_reps}', weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE)
+            circuit = ft.Text(f'WARMUP {c + 1}', weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE, height=50) if c < warmup_reps \
+                else ft.Text(f'WORK {c + 1 - warmup_reps}', weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE,
+                             height=50)
             controls.append(circuit)
 
         circuit_column = ft.Column(controls=controls, height=50 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
@@ -323,8 +325,12 @@ class ExerciseView:
         inputs_row.controls.append(circuits_column)
         inputs_row.controls.append(reps_column)
         inputs_row.controls.append(kilos_column)
-    
-        return inputs_row
+
+        hor_line = ft.Divider(color=ft.Colors.WHITE, height=20)
+        column = ft.Column(controls=[inputs_row, hor_line], scroll=ft.ScrollMode.ALWAYS)
+        container = ft.Container(content=column, expand=2)
+
+        return container
     
     def generate_view(self, page: ft.Page):
         stats_row_width = 150
