@@ -208,12 +208,12 @@ class ExerciseView:
         num_of_reps = int(work_reps) + int(warmup_reps)
         controls = [circuits_text]
         for c in range(num_of_reps):
-            circuit = ft.Text(f'WARMUP {c + 1}', weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE, height=50) if c < warmup_reps \
+            circuit = ft.Text(f'WARMUP {c + 1}', weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE, height=70) if c < warmup_reps \
                 else ft.Text(f'WORK {c + 1 - warmup_reps}', weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE,
-                             height=50)
+                             height=70)
             controls.append(circuit)
 
-        circuit_column = ft.Column(controls=controls, height=50 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
+        circuit_column = ft.Column(controls=controls, height=70 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
         return circuit_column
 
     def generate_reps_input_column(self, stats_row: ft.Row, stats_font_size: int) -> ft.Column:
@@ -258,13 +258,13 @@ class ExerciseView:
 
             reps_input_options = [ft.dropdown.Option(f'{i}') for i in range(reps[0] - 2, reps[1] + 1)] if len(reps) > 1 \
                 else [ft.dropdown.Option(f'{reps[0] - 2}'), ft.dropdown.Option(f'{reps[0] - 1}'), ft.dropdown.Option(f'{reps[0]}')]
-            reps_input = ft.Dropdown(width=60, height=45, options=reps_input_options, on_change=update_schedule,
-                                     data=[index, work_or_warmup], text_size=14)
+            reps_input = ft.Dropdown(width=70, height=70, options=reps_input_options, on_change=update_schedule,
+                                     data=[index, work_or_warmup], text_size=20)
             reps_input.value = self.exercises['work reps done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
                 else self.exercises['warmup reps done'][self.exercise_index][c]
             controls.append(reps_input)
 
-        reps_column = ft.Column(controls=controls, height=50 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
+        reps_column = ft.Column(controls=controls, height=70 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
         return reps_column
 
     def generate_kilos_input_column(self, stats_font_size: int) -> ft.Column:
@@ -297,12 +297,12 @@ class ExerciseView:
             work_or_warmup = 'warmup' if c < warmup_reps else 'work'
             full_kilos_units_input_options = [ft.dropdown.Option(f'{i}') for i in range(200)]
             index = c if work_or_warmup == 'warmup' else c - warmup_reps
-            full_kilos_units_input = ft.Dropdown(width=55, height=45, options=full_kilos_units_input_options,
-                                                 on_change=update_schedule, data=[index, work_or_warmup, False], text_size=14)
+            full_kilos_units_input = ft.Dropdown(width=70, height=70, options=full_kilos_units_input_options,
+                                                 on_change=update_schedule, data=[index, work_or_warmup, False], text_size=20)
 
             decimal_kilos_input_options = [ft.dropdown.Option(f'{i}') for i in [x/10 for x in range(10)]]
-            decimal_kilos_units_input = ft.Dropdown(width=45, height=45, options=decimal_kilos_input_options,
-                                                    on_change=update_schedule, data=[index, work_or_warmup, True], text_size=10)
+            decimal_kilos_units_input = ft.Dropdown(width=70, height=70, options=decimal_kilos_input_options,
+                                                    on_change=update_schedule, data=[index, work_or_warmup, True], text_size=16)
 
             current_kilos_value = self.exercises['work kilos done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
                 else self.exercises['warmup kilos done'][self.exercise_index][c]
@@ -313,7 +313,7 @@ class ExerciseView:
             both_full_and_decimal = ft.Row(controls=[full_kilos_units_input, decimal_kilos_units_input])
             controls.append(both_full_and_decimal)
     
-        kilos_column = ft.Column(controls=controls, height=50 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
+        kilos_column = ft.Column(controls=controls, height=70 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
         return kilos_column
     
     def generate_input_row(self, stats_row: ft.Row, stats_font_size: int, row_width: int) -> ft.Row:
