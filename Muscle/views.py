@@ -32,7 +32,7 @@ class InfoView:
                              ft.Dropdown(options=[ft.dropdown.Option('beginner'), ft.dropdown.Option('intermediate'),
                                                   ft.dropdown.Option('advanced')],
                                          value=str(self.ex_data.program), dense=True, select_icon_size=1,
-                                         width=90, height=35, on_change=self.update_program, text_size=15,
+                                         width=100, height=35, on_change=self.update_program, text_size=15,
                                          content_padding=10),
                              ft.Text('STAGE       ', size=12, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE),
                              ft.Dropdown(options=[ft.dropdown.Option('1'), ft.dropdown.Option('2'),
