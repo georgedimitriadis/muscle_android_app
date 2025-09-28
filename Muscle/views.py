@@ -246,6 +246,9 @@ class ExerciseView:
                     stats_row.controls[1].controls[1].value.split('-')
             elif '/' in rep_values:
                 possible_rep_value = [rep_values.split('/')[c - warmup_reps]]
+            #TODO: FIX THE STRIP
+            elif '+' in rep_values:
+                possible_rep_value = [sum([int(rv) for rv in rep_values.split('+')])]
             else:
                 possible_rep_value = [rep_values]
 
