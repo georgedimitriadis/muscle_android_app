@@ -12,7 +12,7 @@ class EMail:
     def __init__(self, attachment):
 
         self.sender_email = 'george.dimitriadis.android@gmail.com'
-        self.password = 'uqcz fxpu gxvm ldit'
+        self.password = 'lvcl kljr ktbe rcoq'
         self.smtp_server = 'smtp.gmail.com'
         self.smtp_port = '587'
         self.receiver_email = self.sender_email

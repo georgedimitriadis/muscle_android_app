@@ -240,7 +240,6 @@ class ExerciseView:
 
             rep_values = stats_row.controls[4].controls[0].value if work_or_warmup == 'work' else \
                 stats_row.controls[1].controls[1].value
-
             if '-' in rep_values:
                 possible_rep_value = stats_row.controls[4].controls[0].value.split('-') if work_or_warmup == 'work' else \
                     stats_row.controls[1].controls[1].value.split('-')
@@ -270,7 +269,7 @@ class ExerciseView:
         reps_column = ft.Column(controls=controls, height=70 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
         return reps_column
 
-    def generate_kilos_input_column(self, stats_font_size: int) -> ft.Column:
+    def generate_kilos_input_column(self, stats_font_size: int, page: ft.Page) -> ft.Column:
         kilos_text = ft.Text("KILOS", size=stats_font_size, weight=ft.FontWeight.BOLD,
                              color=ft.Colors.BLUE)
 
@@ -291,6 +290,20 @@ class ExerciseView:
             self.exercises[work_type][self.exercise_index][e.control.data[0]] = new_kilos
             self.ex_data.save()
 
+        def negate_kilos(e):
+            work_type = 'work kilos done' if e.control.data[1] == 'work' else 'warmup kilos done'
+            current_kilos = float(self.exercises[work_type][self.exercise_index][e.control.data[0]])
+            negated_kilos = (-1) * current_kilos
+            new_kilos = str(negated_kilos)
+            self.exercises[work_type][self.exercise_index][e.control.data[0]] = new_kilos
+            self.ex_data.save()
+
+            if minus_button.icon == ft.Icons.ADD:
+                minus_button.icon = ft.Icons.MINIMIZE
+            else:
+                minus_button.icon = ft.Icons.ADD
+            page.update()
+
         work_reps = self.exercises['work sets'][self.exercise_index]
         warmup_reps = 0 if len(self.exercises['warmup sets']) == 0 else int(self.exercises['warmup sets'][
             self.exercise_index])
@@ -300,6 +313,9 @@ class ExerciseView:
             work_or_warmup = 'warmup' if c < warmup_reps else 'work'
             full_kilos_units_input_options = [ft.dropdown.Option(f'{i}') for i in range(200)]
             index = c if work_or_warmup == 'warmup' else c - warmup_reps
+
+            minus_button = ft.IconButton(icon=ft.Icons.ADD, on_click=negate_kilos, data=[index, work_or_warmup], width=20, height=20)
+
             full_kilos_units_input = ft.Dropdown(width=70, height=70, options=full_kilos_units_input_options,
                                                  on_change=update_schedule, data=[index, work_or_warmup, False], text_size=20)
 
@@ -309,22 +325,29 @@ class ExerciseView:
 
             current_kilos_value = self.exercises['work kilos done'][self.exercise_index][c - warmup_reps] if work_or_warmup == 'work' \
                 else self.exercises['warmup kilos done'][self.exercise_index][c]
-            full_kilos_current_value = int(float(current_kilos_value))
-            decimal_kilos_current_value = (round((float(current_kilos_value) - full_kilos_current_value)*10))/10
+            full_kilos_current_value = abs(int(float(current_kilos_value)))
+            negative = True if float(current_kilos_value) < 0 else False
+            decimal_kilos_current_value = (round((abs(float(current_kilos_value)) - full_kilos_current_value)*10))/10
+
             full_kilos_units_input.value = str(full_kilos_current_value)
             decimal_kilos_units_input.value = str(decimal_kilos_current_value)
-            both_full_and_decimal = ft.Row(controls=[full_kilos_units_input, decimal_kilos_units_input])
+            if negative:
+                minus_button.icon = ft.Icons.MINIMIZE
+            else:
+                minus_button.icon = ft.Icons.ADD
+
+            both_full_and_decimal = ft.Row(controls=[minus_button, full_kilos_units_input, decimal_kilos_units_input])
             controls.append(both_full_and_decimal)
     
         kilos_column = ft.Column(controls=controls, height=70 * num_of_reps, alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
         return kilos_column
     
-    def generate_input_row(self, stats_row: ft.Row, stats_font_size: int, row_width: int) -> ft.Row:
+    def generate_input_row(self, stats_row: ft.Row, stats_font_size: int, row_width: int, page: ft.Page) -> ft.Row:
         inputs_row = ft.Row(alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
 
         circuits_column = self.generate_circuit_number_input_column(stats_font_size)
         reps_column = self.generate_reps_input_column(stats_row, stats_font_size)
-        kilos_column = self.generate_kilos_input_column(stats_font_size)
+        kilos_column = self.generate_kilos_input_column(stats_font_size, page)
         inputs_row.controls.append(circuits_column)
         inputs_row.controls.append(reps_column)
         inputs_row.controls.append(kilos_column)
@@ -346,7 +369,7 @@ class ExerciseView:
     
         stats_row = self.generate_stats(row_width=stats_row_width, stats_column_height=stats_column_height,
                                         stats_font_size=stats_font_size)
-        inputs_row = self.generate_input_row(stats_row, stats_font_size, stats_row_width)
+        inputs_row = self.generate_input_row(stats_row, stats_font_size, stats_row_width, page)
 
         page.add(exercise_info_row)
         page.add(exercise_name_row)
