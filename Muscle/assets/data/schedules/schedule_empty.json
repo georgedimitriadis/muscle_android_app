@@ -39041,19 +39041,1897 @@
                 }
             },
             "week 25": {
-                "workout 1": {},
-                "workout 2": {},
-                "workout 3": {}
+                "workout 1": {
+                    "circuit 1": {
+                        "type": "alternated with full\nrecovery between sets",
+                        "name": [
+                            "BARBELL BENCH PRESS TO LOWER CHEST ARCHED BACK",
+                            "EZBAR BICEPS CURL CLOSE GRIP"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "3"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "10/8/6"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "4",
+                            "4"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4/10/15",
+                            "4/4/10/15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "211"
+                        ],
+                        "rest": [
+                            "Full Recovery",
+                            "Full Recovery"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "fast AB circuit",
+                        "name": [
+                            "FULL V SIT",
+                            "KNEE UP",
+                            "CURLUP HANDS ON FOREHEAD ELBOWS OUT + TWIST",
+                            "RUSSIAN TWIST MEDICINE BALL IN HANDS",
+                            "SIDE RAISE HANDS ON FOREHEAD ELBOWS IN"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "2",
+                            "2",
+                            "2"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10-20",
+                            "10-20",
+                            "10-20",
+                            "15-20",
+                            "10-15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "10*",
+                            "20*",
+                            "20*",
+                            "101",
+                            "10*"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                },
+                "workout 2": {
+                    "circuit 1": {
+                        "type": "straight sets",
+                        "name": [
+                            "BARBELL SQUAT LOW BAR",
+                            "BARBELL SQUAT EXPLOSIVE",
+                            "BARBELL SQUAT JUMP",
+                            "DEADLIFT",
+                            "CLEAN PULL",
+                            "HIGH PULL"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "0",
+                            "1",
+                            "2",
+                            "1",
+                            "1"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "0",
+                            "6",
+                            "6/4",
+                            "6",
+                            "8"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "1",
+                            "2",
+                            "2",
+                            "1"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4",
+                            "8/8",
+                            "10",
+                            "4/4",
+                            "6/6",
+                            "8"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "20*",
+                            "10*",
+                            "211",
+                            "10*",
+                            "10*"
+                        ],
+                        "rest": [
+                            "Up to 300",
+                            "180-240",
+                            "120-180",
+                            "Up to 300",
+                            "180-240",
+                            "120-180"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "controlled AB circuit",
+                        "name": [
+                            "KNEE UP",
+                            "CURLUP HANDS ON OPPOSITE ELBOWS",
+                            "LATERAL LEG LOWERING",
+                            "SIDE RAISE ON ROMAN CHAIR HANDS ON FOREHEAD",
+                            "PUSHUP HOLD LIFT LEG WITH OPPOSITE ARM"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "2",
+                            "2",
+                            "2"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "303",
+                            "303",
+                            "303",
+                            "303",
+                            "5-sec hold"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                },
+                "workout 3": {
+                    "circuit 1": {
+                        "type": "alternated with full\nrecovery between sets",
+                        "name": [
+                            "PULLUP",
+                            "BARBELL SEATED SHOULDER PRESS TO FRONT"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "3"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "10/8/6"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "4",
+                            "4"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4/10/15",
+                            "4/4/10/15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "211"
+                        ],
+                        "rest": [
+                            "Full Recovery",
+                            "Full Recovery"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "strength AB circuit",
+                        "name": [
+                            "KNEE UP VERTICAL",
+                            "BARBELL ROLLOUT",
+                            "SIDE RAISE ON ROMAN CHAIR HANDS ON FOREHEAD",
+                            "RUSSIAN TWIST FEET ANCHORED WEIGHT IN HANDS",
+                            "CURLUP LEGS IN AIR WEIGHT ON CHEST"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10-15",
+                            "10-15",
+                            "10-15",
+                            "15-15",
+                            "10-15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "201",
+                            "201",
+                            "201",
+                            "201",
+                            "201"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ]
+                    }
+                }
             },
             "week 26": {
-                "workout 1": {},
-                "workout 2": {},
-                "workout 3": {}
+                "workout 1": {
+                    "circuit 1": {
+                        "type": "alternated with full\nrecovery between sets",
+                        "name": [
+                            "BARBELL BENCH PRESS TO LOWER CHEST ARCHED BACK",
+                            "EZBAR BICEPS CURL CLOSE GRIP"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "3"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "10/8/6"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "4",
+                            "4"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4/10/15",
+                            "4/4/10/15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "211"
+                        ],
+                        "rest": [
+                            "Full Recovery",
+                            "Full Recovery"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "fast AB circuit",
+                        "name": [
+                            "FULL V SIT",
+                            "KNEE UP",
+                            "CURLUP HANDS ON FOREHEAD ELBOWS OUT + TWIST",
+                            "RUSSIAN TWIST MEDICINE BALL IN HANDS",
+                            "SIDE RAISE HANDS ON FOREHEAD ELBOWS IN"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "2",
+                            "2",
+                            "2"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10-20",
+                            "10-20",
+                            "10-20",
+                            "15-20",
+                            "10-15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "10*",
+                            "20*",
+                            "20*",
+                            "101",
+                            "10*"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                },
+                "workout 2": {
+                    "circuit 1": {
+                        "type": "straight sets",
+                        "name": [
+                            "BARBELL SQUAT LOW BAR",
+                            "BARBELL SQUAT EXPLOSIVE",
+                            "BARBELL SQUAT JUMP",
+                            "DEADLIFT",
+                            "CLEAN PULL",
+                            "HIGH PULL"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "0",
+                            "1",
+                            "2",
+                            "1",
+                            "1"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "0",
+                            "6",
+                            "6/4",
+                            "6",
+                            "8"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "1",
+                            "2",
+                            "2",
+                            "1"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4",
+                            "8/8",
+                            "10",
+                            "4/4",
+                            "6/6",
+                            "8"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "20*",
+                            "10*",
+                            "211",
+                            "10*",
+                            "10*"
+                        ],
+                        "rest": [
+                            "Up to 300",
+                            "180-240",
+                            "120-180",
+                            "Up to 300",
+                            "180-240",
+                            "120-180"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "controlled AB circuit",
+                        "name": [
+                            "KNEE UP",
+                            "CURLUP HANDS ON OPPOSITE ELBOWS",
+                            "LATERAL LEG LOWERING",
+                            "SIDE RAISE ON ROMAN CHAIR HANDS ON FOREHEAD",
+                            "PUSHUP HOLD LIFT LEG WITH OPPOSITE ARM"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "2",
+                            "2",
+                            "2"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "303",
+                            "303",
+                            "303",
+                            "303",
+                            "5-sec hold"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                },
+                "workout 3": {
+                    "circuit 1": {
+                        "type": "alternated with full\nrecovery between sets",
+                        "name": [
+                            "PULLUP",
+                            "BARBELL SEATED SHOULDER PRESS TO FRONT"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "3"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "10/8/6"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "4",
+                            "4"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4/10/15",
+                            "4/4/10/15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "211"
+                        ],
+                        "rest": [
+                            "Full Recovery",
+                            "Full Recovery"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "strength AB circuit",
+                        "name": [
+                            "KNEE UP VERTICAL",
+                            "BARBELL ROLLOUT",
+                            "SIDE RAISE ON ROMAN CHAIR HANDS ON FOREHEAD",
+                            "RUSSIAN TWIST FEET ANCHORED WEIGHT IN HANDS",
+                            "CURLUP LEGS IN AIR WEIGHT ON CHEST"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10-15",
+                            "10-15",
+                            "10-15",
+                            "15-15",
+                            "10-15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "201",
+                            "201",
+                            "201",
+                            "201",
+                            "201"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ]
+                    }
+                }
             },
             "week 27": {
-                "workout 1": {},
-                "workout 2": {},
-                "workout 3": {}
+                "workout 1": {
+                    "circuit 1": {
+                        "type": "alternated with full\nrecovery between sets",
+                        "name": [
+                            "BARBELL BENCH PRESS TO LOWER CHEST ARCHED BACK",
+                            "EZBAR BICEPS CURL CLOSE GRIP"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "3"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "10/8/6"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "4",
+                            "4"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4/10/15",
+                            "4/4/10/15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "211"
+                        ],
+                        "rest": [
+                            "Full Recovery",
+                            "Full Recovery"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "fast AB circuit",
+                        "name": [
+                            "FULL V SIT",
+                            "KNEE UP",
+                            "CURLUP HANDS ON FOREHEAD ELBOWS OUT + TWIST",
+                            "RUSSIAN TWIST MEDICINE BALL IN HANDS",
+                            "SIDE RAISE HANDS ON FOREHEAD ELBOWS IN"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "2",
+                            "2",
+                            "2"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10-20",
+                            "10-20",
+                            "10-20",
+                            "15-20",
+                            "10-15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "10*",
+                            "20*",
+                            "20*",
+                            "101",
+                            "10*"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                },
+                "workout 2": {
+                    "circuit 1": {
+                        "type": "straight sets",
+                        "name": [
+                            "BARBELL SQUAT LOW BAR",
+                            "BARBELL SQUAT EXPLOSIVE",
+                            "BARBELL SQUAT JUMP",
+                            "DEADLIFT",
+                            "CLEAN PULL",
+                            "HIGH PULL"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "0",
+                            "1",
+                            "2",
+                            "1",
+                            "1"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "0",
+                            "6",
+                            "6/4",
+                            "6",
+                            "8"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "1",
+                            "2",
+                            "2",
+                            "1"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4",
+                            "8/8",
+                            "10",
+                            "4/4",
+                            "6/6",
+                            "8"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "20*",
+                            "10*",
+                            "211",
+                            "10*",
+                            "10*"
+                        ],
+                        "rest": [
+                            "Up to 300",
+                            "180-240",
+                            "120-180",
+                            "Up to 300",
+                            "180-240",
+                            "120-180"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "controlled AB circuit",
+                        "name": [
+                            "KNEE UP",
+                            "CURLUP HANDS ON OPPOSITE ELBOWS",
+                            "LATERAL LEG LOWERING",
+                            "SIDE RAISE ON ROMAN CHAIR HANDS ON FOREHEAD",
+                            "PUSHUP HOLD LIFT LEG WITH OPPOSITE ARM"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "2",
+                            "2",
+                            "2",
+                            "2",
+                            "2"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10",
+                            "10",
+                            "10",
+                            "10",
+                            "10"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "303",
+                            "303",
+                            "303",
+                            "303",
+                            "5-sec hold"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    }
+                },
+                "workout 3": {
+                    "circuit 1": {
+                        "type": "alternated with full\nrecovery between sets",
+                        "name": [
+                            "PULLUP",
+                            "BARBELL SEATED SHOULDER PRESS TO FRONT"
+                        ],
+                        "warmup sets": [
+                            "3",
+                            "3"
+                        ],
+                        "warmup sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "warmup reps": [
+                            "10/8/6",
+                            "10/8/6"
+                        ],
+                        "warmup reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work sets": [
+                            "4",
+                            "4"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "4/4/10/15",
+                            "4/4/10/15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "211",
+                            "211"
+                        ],
+                        "rest": [
+                            "Full Recovery",
+                            "Full Recovery"
+                        ],
+                        "warmup kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ],
+                        "work kilos done": [
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ],
+                            [
+                                "0",
+                                "0",
+                                "0",
+                                "0"
+                            ]
+                        ]
+                    },
+                    "circuit 2": {
+                        "type": "strength AB circuit",
+                        "name": [
+                            "KNEE UP VERTICAL",
+                            "BARBELL ROLLOUT",
+                            "SIDE RAISE ON ROMAN CHAIR HANDS ON FOREHEAD",
+                            "RUSSIAN TWIST FEET ANCHORED WEIGHT IN HANDS",
+                            "CURLUP LEGS IN AIR WEIGHT ON CHEST"
+                        ],
+                        "warmup sets": [],
+                        "warmup sets done": [],
+                        "warmup reps": [],
+                        "warmup reps done": [],
+                        "work sets": [
+                            "1",
+                            "1",
+                            "1",
+                            "1",
+                            "1"
+                        ],
+                        "work sets done": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "work reps": [
+                            "10-15",
+                            "10-15",
+                            "10-15",
+                            "15-15",
+                            "10-15"
+                        ],
+                        "work reps done": [
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ],
+                        "tempo": [
+                            "201",
+                            "201",
+                            "201",
+                            "201",
+                            "201"
+                        ],
+                        "rest": [
+                            "0",
+                            "0",
+                            "0",
+                            "0",
+                            "0"
+                        ],
+                        "warmup kilos done": [],
+                        "work kilos done": [
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ],
+                            [
+                                "0"
+                            ]
+                        ]
+                    }
+                }
             }
         }
     }
