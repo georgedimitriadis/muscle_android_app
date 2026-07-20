@@ -2,30 +2,70 @@
 from datetime import datetime
 import json
 from typing import Tuple
-
+import os
 
 class Data:
     def __init__(self):
-        self.schedule_file = r'assets/data/schedule.json'
-        self.current_place_file = r'assets/data/current_place_in_schedule.json'
+        # Bundled (read-only) seed copies
+        self.schedule_asset = r'assets/data/schedule.json'
+        self.current_place_asset = r'assets/data/current_place_in_schedule.json'
 
-        with open(self.schedule_file, 'r') as f:
+        # Writable, persistent per-app storage (set by Flet at runtime)
+        #storage_dir = os.getenv('FLET_APP_STORAGE_DATA')
+        #data_dir = os.path.join(storage_dir, 'data')
+        #os.makedirs(data_dir, exist_ok=True)
+        #self.schedule_file = os.path.join(data_dir, 'schedule.json')
+        #self.current_place_file = os.path.join(data_dir, 'current_place_in_schedule.json')
+
+        # Seed from asset ONLY if no live copy exists yet
+        #if not os.path.exists(self.schedule_file):
+        #    with open(self.schedule_asset, 'r') as src:
+        #        with open(self.schedule_file, 'w') as dst:
+        #            dst.write(src.read())
+        #if not os.path.exists(self.current_place_file):
+        #    with open(self.current_place_asset, 'r') as src:
+        #        with open(self.current_place_file, 'w') as dst:
+        #            dst.write(src.read())
+
+        #with open(self.schedule_file, 'r') as f:
+        with open(self.schedule_asset, 'r') as f:
             self.schedule = json.load(f)
 
-        with open(self.current_place_file, 'r') as f:
+        #with open(self.current_place_file, 'r') as f:
+        with open(self.current_place_asset, 'r') as f:
             self.current_place_in_schedule = json.load(f)
 
     def save_schedule_reps_and_kilos(self):
-        with open(self.schedule_file, 'w') as f:
+        with open(self.schedule_asset, 'w') as f:
             json.dump(self.schedule, fp=f, indent=4)
+
+        # Mirror to file-manager-accessible location (best effort)
         try:
-            with open(r'/storage/sdcard0/Documents/muscle_app_current_schedule.json', 'x') as g:
+            # Writable, persistent per-app storage (set by Flet at runtime)
+            storage_dir = os.getenv('FLET_APP_STORAGE_DATA')
+            data_dir = os.path.join(storage_dir, 'data')
+            os.makedirs(data_dir, exist_ok=True)
+            self.schedule_file = os.path.join(data_dir, 'schedule.json')
+            self.current_place_file = os.path.join(data_dir, 'current_place_in_schedule.json')
+
+            mirror_dir = r'/storage/sdcard0/Documents/muscle_app'
+            os.makedirs(mirror_dir, exist_ok=True)
+
+            # Put the asset to the FLET managed storage
+            with open(self.schedule_asset, 'r') as src:
+                with open(self.schedule_file, 'w') as dst:
+                   dst.write(src.read())
+
+                #with open(os.path.join(mirror_dir, 'schedule.json'), 'w') as g:
+                #    g.write(src.read())
+
+            with open(os.path.join(mirror_dir, 'schedule.json'), 'w') as g:
                 json.dump(self.schedule, fp=g, indent=4)
-        except:
+        except Exception:
             pass
 
     def save_current_place_in_schedule(self):
-        with open(self.current_place_file, 'w') as f:
+        with open(self.current_place_asset, 'w') as f:
             json.dump(self.current_place_in_schedule, fp=f, indent=4)
 
 

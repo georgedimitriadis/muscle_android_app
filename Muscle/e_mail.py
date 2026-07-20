@@ -12,7 +12,7 @@ class EMail:
     def __init__(self, attachment):
 
         self.sender_email = 'george.dimitriadis.android@gmail.com'
-        self.password = 'lvcl kljr ktbe rcoq'
+        self.password ='jcmt tuxe wykt ytuk'
         self.smtp_server = 'smtp.gmail.com'
         self.smtp_port = '587'
         self.receiver_email = self.sender_email
@@ -31,7 +31,10 @@ class EMail:
         message.attach(MIMEText(self.body, "plain"))
 
         # Attach a file
-        filename = "./assets/data/schedule.json"  # Replace with your file path
+        storage_dir = os.getenv('FLET_APP_STORAGE_DATA')
+        data_dir = os.path.join(storage_dir, 'data')
+        filename = os.path.join(data_dir, 'schedule.json')
+        #filename = "./assets/data/schedule.json"  # Replace with your file path
         try:
             with open(filename, "rb") as attachment:
                 part = MIMEBase("application", "octet-stream")
