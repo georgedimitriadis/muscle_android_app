@@ -33,10 +33,11 @@ def show_popup(page: ft.Page, title: str, message: str):
     dlg = ft.AlertDialog(
         title=ft.Text(title),
         content=ft.Container(
-            content=ft.Column([ft.Text(message, selectable=True, size=12)],
+            content=ft.Column([ft.Text(message, selectable=True, size=25)],
                               scroll=ft.ScrollMode.AUTO, tight=True),
-            width=400, height=300,   # scrolls, so long tracebacks stay readable
+            width=300, height=300,   # scrolls, so long tracebacks stay readable
         ),
         actions=[ft.TextButton("OK", on_click=lambda e: page.close(dlg))],
     )
     page.open(dlg)
+

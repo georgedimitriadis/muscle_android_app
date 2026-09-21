@@ -1,6 +1,7 @@
 
 import os
 import smtplib
+import threading
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
@@ -49,9 +50,33 @@ class EMail:
                                 message.as_string())
 
             write_log('[email] sent OK')
-            show_popup(self.page, 'Email sent', 'Schedule emailed successfully.')
+            #show_popup(self.page, 'Email sent', 'Schedule emailed successfully.')
+            return True, 'Schedule emailed successfully.'
         except Exception:
             err = traceback.format_exc()
             write_log('[email] FAILED\n' + err)
-            show_popup(self.page, 'Email failed', err)
+            #show_popup(self.page, 'Email failed', err)
+            return False, err
 
+    def send_and_notify(self):
+        body = ft.Text("Sending email…")
+        close_btn = ft.TextButton("Close", disabled=True)
+        dlg = ft.AlertDialog(
+            title=ft.Text("Email"),
+            content=ft.Container(
+                content=ft.Column([body], scroll=ft.ScrollMode.AUTO, tight=True),
+                width=400, height=200,
+            ),
+            actions=[close_btn],
+        )
+        close_btn.on_click = lambda _: self.page.close(dlg)
+        self.page.open(dlg)  # "Sending email…" shows immediately
+
+        def worker():
+            ok, detail = self.send_email()
+            body.value = "Schedule emailed successfully." if ok else detail
+            dlg.title.value = "Email sent" if ok else "Email failed"
+            close_btn.disabled = False
+            self.page.update()
+
+        threading.Thread(target=worker, daemon=True).start()

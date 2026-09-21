@@ -68,6 +68,15 @@ class Data:
             with open(os.path.join(mirror_dir, 'schedule.json'), 'w') as g:
                 json.dump(self.schedule, fp=g, indent=4)
             write_log('[save] internal + external OK')
+        except PermissionError:
+            write_log('[save] external mirror: permission not granted')
+            show_popup(page, 'Permission needed',
+                       'To also save into Documents/muscle_app, enable '
+                       '"All files access" for this app:\n\n'
+                       'Settings, -> Apps -> Special App access -> All files access -> Muscle or\n'
+                       'Settings > Apps > Muscle > Permissions > '
+                       'Files and media > Allow management of all files.\n'
+                       'or something similar.')
         except Exception:
             err = traceback.format_exc()
             write_log('[save] external mirror FAILED\n' + err)
