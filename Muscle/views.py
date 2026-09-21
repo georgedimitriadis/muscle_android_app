@@ -98,7 +98,7 @@ class ExerciseView:
 
         return exercise_info_row
 
-    def get_image(self) -> ft.Image:
+    def get_image(self, page: ft.Page) -> ft.Image:
         name = self.exercises['name'][self.exercise_index]
         name = name.replace(' ', '_').lower()
         name = name.replace(' ', '_').lower()
@@ -111,7 +111,16 @@ class ExerciseView:
             fit=ft.ImageFit.FILL,
         )
 
-        return img
+        dialog = ft.AlertDialog(
+            content=self.generate_stats(row_width=70, stats_column_height=60, stats_font_size=26, two_rows=False)
+        )
+
+        tap_img = ft.GestureDetector(
+            content=img,
+            on_tap=lambda e: page.open(dialog)
+            )
+
+        return tap_img
     
     def get_name_text(self) -> ft.Text:
         name = self.exercises['name'][self.exercise_index]
@@ -122,8 +131,8 @@ class ExerciseView:
     
         return ex_name
     
-    def generate_name_row(self) -> ft.Row:
-        img = self.get_image()
+    def generate_name_row(self, page: ft.Page) -> ft.Row:
+        img = self.get_image(page)
         ex_name = self.get_name_text()
         exercise_name_row = ft.Row()
         exercise_name_row.controls.append(img)
@@ -185,18 +194,28 @@ class ExerciseView:
     
         return stats_column_values_left, stats_column_values_right
     
-    def generate_stats(self, row_width: int, stats_column_height: int, stats_font_size: int) -> ft.Row:
-        stats_row = ft.Row(width=row_width)
+    def generate_stats(self, row_width: int, stats_column_height: int, stats_font_size: int, two_rows: bool = True) -> ft.Row | ft.Column:
+
     
         stats_column_names_left, stats_column_names_right = self.get_stats_names_columns(stats_column_height, stats_font_size)
         stats_column_values_left, stats_column_values_right = self.get_stats_values_columns(stats_column_height, stats_font_size)
-        stats_row.controls.append(stats_column_names_left)
-        stats_row.controls.append(stats_column_values_left)
-        stats_row.controls.append(ft.VerticalDivider(width=10, color='white'))
-        stats_row.controls.append(stats_column_names_right)
-        stats_row.controls.append(stats_column_values_right)
+        if two_rows:
+            stats_control = ft.Row(width=row_width)
+            stats_control.controls.append(stats_column_names_left)
+            stats_control.controls.append(stats_column_values_left)
+            stats_control.controls.append(ft.VerticalDivider(width=10, color='white'))
+            stats_control.controls.append(stats_column_names_right)
+            stats_control.controls.append(stats_column_values_right)
+        else:
+            stats_control = ft.Column(width=row_width)
+            for i in range(3):
+                row = ft.Row(controls=[stats_column_names_left.controls[i], stats_column_values_left.controls[i]])
+                stats_control.controls.append(row)
+            for i in range(3):
+                row = ft.Row(controls=[stats_column_names_right.controls[i], stats_column_values_right.controls[i]])
+                stats_control.controls.append(row)
     
-        return stats_row
+        return stats_control
 
     def generate_circuit_number_input_column(self, stats_font_size: int) -> ft.Column:
         circuits_text = ft.Text("EXERCISES ", size=stats_font_size, weight=ft.FontWeight.BOLD,
@@ -365,7 +384,7 @@ class ExerciseView:
 
         exercise_info_row = self.generate_exercise_info_row()
 
-        exercise_name_row = self.generate_name_row()
+        exercise_name_row = self.generate_name_row(page)
     
         stats_row = self.generate_stats(row_width=stats_row_width, stats_column_height=stats_column_height,
                                         stats_font_size=stats_font_size)

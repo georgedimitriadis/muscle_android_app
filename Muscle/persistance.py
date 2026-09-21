@@ -4,6 +4,10 @@ import json
 from typing import Tuple
 import os
 
+import flet as ft
+import traceback
+from helpers import write_log, show_popup, EXTERNAL_DIR
+
 class Data:
     def __init__(self):
         # Bundled (read-only) seed copies
@@ -35,34 +39,39 @@ class Data:
         with open(self.current_place_asset, 'r') as f:
             self.current_place_in_schedule = json.load(f)
 
-    def save_schedule_reps_and_kilos(self):
-        with open(self.schedule_asset, 'w') as f:
-            json.dump(self.schedule, fp=f, indent=4)
-
-        # Mirror to file-manager-accessible location (best effort)
+    def save_schedule_reps_and_kilos(self, page=None):
+        # --- internal storage: exactly your original writes ---
         try:
-            # Writable, persistent per-app storage (set by Flet at runtime)
+            with open(self.schedule_asset, 'w') as f:
+                json.dump(self.schedule, fp=f, indent=4)
+
             storage_dir = os.getenv('FLET_APP_STORAGE_DATA')
             data_dir = os.path.join(storage_dir, 'data')
             os.makedirs(data_dir, exist_ok=True)
             self.schedule_file = os.path.join(data_dir, 'schedule.json')
             self.current_place_file = os.path.join(data_dir, 'current_place_in_schedule.json')
 
-            mirror_dir = r'/storage/sdcard0/Documents/muscle_app'
-            os.makedirs(mirror_dir, exist_ok=True)
-
             # Put the asset to the FLET managed storage
             with open(self.schedule_asset, 'r') as src:
                 with open(self.schedule_file, 'w') as dst:
-                   dst.write(src.read())
+                    dst.write(src.read())
+        except Exception:
+            err = traceback.format_exc()
+            write_log('[save] internal storage FAILED\n' + err)
+            show_popup(page, 'Save error (internal)', err)
+            return  # the external mirror copies from here, so stop if this failed
 
-                #with open(os.path.join(mirror_dir, 'schedule.json'), 'w') as g:
-                #    g.write(src.read())
-
+        # --- external, file-manager-visible mirror ---
+        try:
+            mirror_dir = EXTERNAL_DIR
+            os.makedirs(mirror_dir, exist_ok=True)
             with open(os.path.join(mirror_dir, 'schedule.json'), 'w') as g:
                 json.dump(self.schedule, fp=g, indent=4)
+            write_log('[save] internal + external OK')
         except Exception:
-            pass
+            err = traceback.format_exc()
+            write_log('[save] external mirror FAILED\n' + err)
+            show_popup(page, 'Save error (external)', err)
 
     def save_current_place_in_schedule(self):
         with open(self.current_place_asset, 'w') as f:
@@ -70,7 +79,7 @@ class Data:
 
 
 class ExerciseData:
-    def __init__(self):
+    def __init__(self, page: ft.Page):
         data = Data()
         self.data = data
         self.schedule = data.schedule
@@ -82,9 +91,10 @@ class ExerciseData:
         self.circuit = self.get_circuit_str(self.current_place_in_schedule['circuit'])
         self.exercise_index = self.current_place_in_schedule['exercise']
         self.circuit_type = self.get_circuit_type(self.circuit)
+        self.page = page
 
     def save(self):
-        self.data.save_schedule_reps_and_kilos()
+        self.data.save_schedule_reps_and_kilos(self.page)
         self.data.current_place_in_schedule['program'] = self.program
         self.data.current_place_in_schedule['stage'] = self.get_stage_int()
         self.data.current_place_in_schedule['week'] = self.get_week_int()
